@@ -1,9 +1,11 @@
 import React from "react";
 import "./Homepage.scss";
+import CurrencyList from "../../components/Currency-List/CurrencyList";
+
 const HomePage = () => {
   return (
     <div className="homepage">
-      <h1>Favorite Currency</h1>
+      <CurrencyList />
     </div>
   );
 };
