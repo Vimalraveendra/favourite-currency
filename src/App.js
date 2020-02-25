@@ -1,11 +1,12 @@
 import React from "react";
 
 import "./App.css";
+import HomePage from "./Page/Homepage/Homepage";
 
 function App() {
   return (
     <div className="App">
-      <h1>Favourite Currency</h1>
+      <HomePage />
     </div>
   );
 }
