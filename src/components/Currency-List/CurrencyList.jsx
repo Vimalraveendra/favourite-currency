@@ -1,7 +1,10 @@
 import React from "react";
 import FavouriteList from "../Favourite-List/FavouriteList";
 import { v4 as uuidv4 } from "uuid";
+import { connect } from "react-redux";
 import "./CurrencyList.scss";
+
+import { requestCurrencyRates } from "../../redux/currencylist/currencylist.actions";
 
 class CurrencyList extends React.Component {
   constructor() {
@@ -68,6 +71,7 @@ class CurrencyList extends React.Component {
 
         this.setState({ currencies: currencyresult, rates: data });
       });
+    // this.props.getCurrency();
   }
 
   render() {
@@ -91,4 +95,7 @@ class CurrencyList extends React.Component {
   }
 }
 
-export default CurrencyList;
+const mapDispatchToProps = dispatch => ({
+  getCurrency: () => dispatch(requestCurrencyRates())
+});
+export default connect(null, mapDispatchToProps)(CurrencyList);

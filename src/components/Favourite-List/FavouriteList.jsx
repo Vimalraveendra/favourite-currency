@@ -1,6 +1,13 @@
 import React from "react";
+// import { connect } from "react-redux";
 import "./FavouriteList.scss";
 import SelectCurrency from "../Select-Currency/SelectCurrency";
+// import {
+//   handleChange,
+//   addCurrency,
+//   clearCurrency
+// } from "../../redux/currencylist/currencylist.actions";
+
 const FavouriteList = ({
   currencies,
   handleChange,
@@ -42,4 +49,16 @@ const FavouriteList = ({
   );
 };
 
+// const mapStateToProps = ({
+//   currencylist: { currency, currencies, rates, id }
+// }) => ({
+//   currency,
+//   currencies,
+//   id
+// });
+// const mapDispatchToProps = dispatch => ({
+//   handleChange: event => dispatch(handleChange(event.target.value)),
+//   addCurrency: () => dispatch(addCurrency()),
+//   clearCurrency: () => dispatch(clearCurrency)
+// });
 export default FavouriteList;
