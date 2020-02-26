@@ -1,0 +1,11 @@
+.favourite {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 40vw;
+
+  & .currency {
+    color: red;
+    padding-top: 5px;
+  }
+}
