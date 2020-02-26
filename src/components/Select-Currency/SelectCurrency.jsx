@@ -1,7 +1,8 @@
 import React from "react";
 import FavouriteCurrency from "../Favourite-Currency/FavouriteCurrency";
+import "./SelectCurrency.scss";
+
 const SelectCurrency = ({ favouriteList, removeCurrency }) => {
-  console.log("3", favouriteList);
   return (
     <div className="currency-list">
       <ul className="currency-item">

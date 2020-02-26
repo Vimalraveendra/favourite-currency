@@ -1,0 +1,44 @@
+.currency-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  .currency-item {
+    list-style: none;
+    padding-inline-start: 0;
+
+    .item {
+      margin-bottom: 5px;
+      background-color: white;
+
+      .left-push {
+        margin-left: 10px;
+      }
+      .right-push {
+        margin-left: 60px;
+      }
+      .remove-item {
+        margin-left: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .current-item {
+    width: 20vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .left-push {
+    margin-left: 0;
+  }
+}

@@ -24,13 +24,13 @@ const FavouriteList = ({
           ))}
         </select>
       </div>
-      <div>
-        <SelectCurrency
-          favouriteList={favouriteList}
-          removeCurrency={removeCurrency}
-        />
-      </div>
-      <div className="select-item">
+
+      <SelectCurrency
+        favouriteList={favouriteList}
+        removeCurrency={removeCurrency}
+      />
+
+      <div className="btn-item">
         <button type="submit" className="btn green" onClick={addCurrency}>
           Add Item
         </button>

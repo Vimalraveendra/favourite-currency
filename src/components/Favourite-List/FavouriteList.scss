@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   width: 40vw;
+  margin-top: 50px;
 
   .options {
     display: flex;
@@ -21,8 +22,11 @@
   }
 }
 
+.btn-item {
+  margin-top: 50px;
+}
 .btn {
-  width: 50vw;
+  width: 18.5vw;
   border: none;
   padding: 10px 0;
   margin: 10px 10px;
@@ -44,5 +48,21 @@
   &.btn:hover {
     background-color: black;
     color: white;
+  }
+}
+@media screen and (max-width: 600px) {
+  .select-item .options {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    font-size: 17px;
   }
 }

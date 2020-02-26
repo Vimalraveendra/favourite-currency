@@ -1,5 +1,4 @@
 import React from "react";
-import "./FavouriteCurrency.scss";
 
 const FavouriteCurrency = ({ id, currency, rate, removeCurrency }) => {
   return (
