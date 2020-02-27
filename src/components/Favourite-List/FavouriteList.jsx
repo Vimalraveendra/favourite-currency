@@ -1,21 +1,21 @@
 import React from "react";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 import "./FavouriteList.scss";
 import SelectCurrency from "../Select-Currency/SelectCurrency";
-// import {
-//   handleChange,
-//   addCurrency,
-//   clearCurrency
-// } from "../../redux/currencylist/currencylist.actions";
+import {
+  handleChange,
+  addCurrency,
+  clearCurrency
+} from "../../redux/currencylist/currencylist.actions";
+import { v4 as uuidv4 } from "uuid";
 
 const FavouriteList = ({
   currencies,
   handleChange,
   currency,
   addCurrency,
-  favouriteList,
-  removeCurrency,
-  clearCurrency
+  clearCurrency,
+  id
 }) => {
   return (
     <React.Fragment>
@@ -32,16 +32,26 @@ const FavouriteList = ({
         </select>
       </div>
 
-      <SelectCurrency
-        favouriteList={favouriteList}
-        removeCurrency={removeCurrency}
-      />
+      <SelectCurrency />
 
       <div className="btn-item">
-        <button type="submit" className="btn green" onClick={addCurrency}>
+        <button
+          type="submit"
+          className="btn green"
+          onClick={() =>
+            addCurrency({
+              id: uuidv4(),
+              currency: currency
+            })
+          }
+        >
           Add Item
         </button>
-        <button type="submit" className="btn red" onClick={clearCurrency}>
+        <button
+          type="submit"
+          className="btn red"
+          onClick={() => clearCurrency()}
+        >
           Clear Item
         </button>
       </div>
@@ -49,16 +59,17 @@ const FavouriteList = ({
   );
 };
 
-// const mapStateToProps = ({
-//   currencylist: { currency, currencies, rates, id }
-// }) => ({
-//   currency,
-//   currencies,
-//   id
-// });
-// const mapDispatchToProps = dispatch => ({
-//   handleChange: event => dispatch(handleChange(event.target.value)),
-//   addCurrency: () => dispatch(addCurrency()),
-//   clearCurrency: () => dispatch(clearCurrency)
-// });
-export default FavouriteList;
+const mapStateToProps = ({
+  currencylist: { currency, currencies, rate, id, favouriteList }
+}) => ({
+  currency,
+  currencies,
+  id,
+  favouriteList
+});
+const mapDispatchToProps = dispatch => ({
+  handleChange: event => dispatch(handleChange(event.target.value)),
+  addCurrency: item => dispatch(addCurrency(item)),
+  clearCurrency: () => dispatch(clearCurrency())
+});
+export default connect(mapStateToProps, mapDispatchToProps)(FavouriteList);

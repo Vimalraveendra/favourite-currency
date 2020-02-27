@@ -1,4 +1,6 @@
 import React from "react";
+import { removeCurrency } from "../../redux/currencylist/currencylist.actions";
+import { connect } from "react-redux";
 
 const FavouriteCurrency = ({ id, currency, rate, removeCurrency }) => {
   return (
@@ -15,4 +17,7 @@ const FavouriteCurrency = ({ id, currency, rate, removeCurrency }) => {
   );
 };
 
-export default FavouriteCurrency;
+const mapDispatchToProps = dispatch => ({
+  removeCurrency: id => dispatch(removeCurrency(id))
+});
+export default connect(null, mapDispatchToProps)(FavouriteCurrency);

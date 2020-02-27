@@ -6,15 +6,9 @@ export const requestCurrencyRates = () => dispatch => {
     .then(response => response.json())
     .then(data => {
       data = data[0].rates;
-      let currencyresult = [];
-      data.forEach(item => {
-        currencyresult.push(item.code);
-      });
-
       dispatch({
         type: currencyListActionTypes.REQUEST_RATES_SUCCESS,
-        payload: currencyresult,
-        data
+        payload: data
       });
     })
     .catch(error =>
@@ -39,7 +33,6 @@ export const removeCurrency = id => ({
   payload: id
 });
 
-export const clearCurrency = item => ({
-  type: currencyListActionTypes.CLEAR_CURRENCY,
-  payload: item
+export const clearCurrency = () => ({
+  type: currencyListActionTypes.CLEAR_CURRENCY
 });
