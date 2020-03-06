@@ -1,7 +1,6 @@
 export const currencySuccess = (currencies, payload) => {
-  let currencyList = [];
-  payload.forEach(item => currencyList.push(item.code));
-  return currencyList;
+  payload.forEach(item => currencies.push(item.code));
+  return [...currencies];
 };
 
 export const addCurrencyToList = (favourite, rates, payload) => {

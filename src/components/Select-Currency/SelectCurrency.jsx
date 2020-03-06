@@ -1,11 +1,9 @@
 import React from "react";
 import FavouriteCurrency from "../Favourite-Currency/FavouriteCurrency";
 import { connect } from "react-redux";
-
 import "./SelectCurrency.scss";
 
 const SelectCurrency = ({ favouriteList }) => {
-  console.log("favourite", favouriteList);
   return (
     <div className="currency-list">
       <ul className="currency-item">

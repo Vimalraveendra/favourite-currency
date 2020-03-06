@@ -17,6 +17,7 @@ const FavouriteList = ({
   clearCurrency,
   id
 }) => {
+  console.log("currencies", currencies);
   return (
     <React.Fragment>
       <div className="select-item">

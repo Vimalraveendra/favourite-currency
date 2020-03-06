@@ -26,4 +26,5 @@ class CurrencyList extends React.Component {
 const mapDispatchToProps = dispatch => ({
   getCurrency: () => dispatch(requestCurrencyRates())
 });
+
 export default connect(null, mapDispatchToProps)(CurrencyList);
