@@ -3,7 +3,7 @@ import FavouriteCurrency from "../Favourite-Currency/FavouriteCurrency";
 import { connect } from "react-redux";
 import "./SelectCurrency.scss";
 
-const SelectCurrency = ({ favouriteList }) => {
+const SelectCurrency = ({ favouriteList ,isOpen}) => {
   return (
     <div className="currency-list">
       <ul className="currency-item">
@@ -14,6 +14,7 @@ const SelectCurrency = ({ favouriteList }) => {
               id={item.id}
               currency={item.currency}
               rate={item.rate}
+              isOpen={isOpen}
             />
           );
         })}
@@ -22,8 +23,9 @@ const SelectCurrency = ({ favouriteList }) => {
   );
 };
 
-const mapStateToProps = ({ currencylist: { favouriteList } }) => ({
-  favouriteList
+const mapStateToProps = ({ currencylist: { favouriteList,isOpen } }) => ({
+  favouriteList,
+  isOpen
 });
 
 export default connect(mapStateToProps)(SelectCurrency);

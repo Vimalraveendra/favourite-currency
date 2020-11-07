@@ -1,6 +1,5 @@
-import currecncyListActionTypes from "./currencylist.type";
+
 import currencyListActionTypes from "./currencylist.type";
-import { v4 as uuidv4 } from "uuid";
 import { currencySuccess, addCurrencyToList } from "./currencylist.utils";
 
 const initialState = {
@@ -9,27 +8,29 @@ const initialState = {
   rate: "",
   currency: "USD",
   favouriteList: [],
-  id: uuidv4(),
+  id: "",
   isPending: false,
   error: "",
-  result: ""
+  result: "",
+  isOpen:false
 };
 export const currencyReducer = (state = initialState, action) => {
+ 
   switch (action.type) {
-    case currecncyListActionTypes.REQUEST_RATES_PENDING:
+    case currencyListActionTypes.REQUEST_RATES_PENDING:
       return {
         ...state,
         isPending: true
       };
 
-    case currecncyListActionTypes.REQUEST_RATES_SUCCESS:
+    case currencyListActionTypes.REQUEST_RATES_SUCCESS:
       return {
         ...state,
         isPending: false,
         currencies: currencySuccess(state.currencies, action.payload),
         rates: action.payload
       };
-    case currecncyListActionTypes.REQUEST_RATES_FAILED:
+    case currencyListActionTypes.REQUEST_RATES_FAILED:
       return {
         ...state,
         isPending: false,
@@ -60,6 +61,12 @@ export const currencyReducer = (state = initialState, action) => {
       return {
         ...state,
         currency: action.payload
+      };
+      case currencyListActionTypes.HANDLE_POPUP_WINDOW:
+      return {
+        ...state,
+        isOpen: !state.isOpen,
+        id:action.payload
       };
     default:
       return state;

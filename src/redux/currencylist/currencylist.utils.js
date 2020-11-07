@@ -4,6 +4,7 @@ export const currencySuccess = (currencies, payload) => {
 };
 
 export const addCurrencyToList = (favourite, rates, payload) => {
+ 
   if (favourite.some(item => item.currency === payload.currency)) {
     return [...favourite];
   } else {
