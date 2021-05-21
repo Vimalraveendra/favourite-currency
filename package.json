@@ -20,6 +20,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "serialize-javascript": "^5.0.1",
+    "ssri": "^8.0.1",
     "uuid": "^8.3.2",
     "yargs-parser": "^20.2.7"
   },
